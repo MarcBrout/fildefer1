@@ -5,7 +5,7 @@
 ** Login   <brout_m@epitech.net>
 ** 
 ** Started on  Wed Nov 18 18:21:07 2015 marc brout
-** Last update Thu Nov 19 19:05:53 2015 marc brout
+** Last update Thu Nov 19 22:30:51 2015 marc brout
 */
 
 #include <stdio.h>
@@ -54,27 +54,13 @@ t_bunny_position	*map_tab_load(t_fdftab *ft, t_bunny_ini *ini)
 int			main(int ac, char **av)
 {
   t_fdftab		ftab;
-  /* int			i; */
 
   if (ac < 2)
     return (1);
-  /* i = 0; */
   if ((ftab.tab = bunnny_load(av[1], &ftab)) == NULL)
     return (1);
-  /* while (i < (ftab.h * ftab.w)) */
-  /*   { */
-  /*     printf("element N°%d\n", i + 1); */
-  /*     printf("x: %d\n", ftab.tab[i].x); */
-  /*     printf("y: %d\n\n", ftab.tab[i].y); */
-  /*     i++; */
-  /*   } */
+  if ((ftab.tabo = map_tab_loado(&ftab)) == NULL)
+    return (1);
   my_fdf_aff(&ftab);
-  /* while (i < (ftab.h * ftab.w)) */
-  /*   { */
-  /*     printf("element N°%d\n", i + 1); */
-  /*     printf("x: %d\n", ftab.tab[i].x); */
-  /*     printf("y: %d\n\n", ftab.tab[i].y); */
-  /*     i++; */
-  /*   } */
   return (0);
 }

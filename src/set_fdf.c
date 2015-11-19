@@ -5,10 +5,29 @@
 ** Login   <brout_m@epitech.net>
 ** 
 ** Started on  Thu Nov 19 18:30:52 2015 marc brout
-** Last update Thu Nov 19 19:15:00 2015 marc brout
+** Last update Thu Nov 19 22:27:12 2015 marc brout
 */
 
 #include "../include/fdf.h"
+
+void			link_plan(t_fdftab *fdf,
+				  t_bunny_pixelarray *pix,
+				  t_color *color)
+{
+  t_bunny_position	pos[2];
+  int			i;
+
+  i = 0;
+  while (i < fdf->h *fdf->w)
+    {
+      pos[0].x = fdf->tab[i].x;
+      pos[0].y = fdf->tab[i].y;
+      pos[1].x = fdf->tabo[i].x;
+      pos[1].y = fdf->tabo[i].y;
+      tekline(pix, &pos[0], color);
+      i++;
+    }
+}
 
 t_bunny_position	*map_tab_loado(t_fdftab *ft)
 {
@@ -33,22 +52,24 @@ t_bunny_position	*map_tab_loado(t_fdftab *ft)
   return (pos);
 }
 
-void		fdf_color(unsigned int col1, unsigned int col2, t_color *col)
+void		fdf_plan(t_fdftab *fdf,
+			 t_bunny_position *tab,
+			 t_bunny_pixelarray *pix,
+			 t_color *color)
 {
-  col[0].full = col1;
-  col[1].full = col2;
+  map_calc(fdf, tab);
+  map_tray(fdf, tab, pix, color);
+  map_trax(fdf, tab, pix, color);  
 }
 
 void		start_const(t_fdftab *fdf,
 			    t_bunny_pixelarray *pix,
 			    t_color *color)
 {
-  fdf->tabo = map_tab_loado(fdf);
-  map_calc(fdf);
-  fdf_color(RED, WHITE, color);
-  map_tray(fdf, fdf->tabo, pix, color);
-  map_trax(fdf, fdf->tabo, pix, color);
-  fdf_color(WHITE, RED, color);
-  map_tray(fdf, fdf->tab, pix, color);
-  map_trax(fdf, fdf->tab, pix, color);
+  color[0].full = COLOR_TWO;
+  fdf_plan(fdf, fdf->tabo, pix, color);
+  color[0].full = COLOR_ONE;
+  fdf_plan(fdf, fdf->tab, pix, color);
+  color[0].argb[ALPHA_CMP] = 125;
+  link_plan(fdf, pix, color);
 }
