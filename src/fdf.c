@@ -5,7 +5,7 @@
 ** Login   <brout_m@epitech.net>
 ** 
 ** Started on  Wed Nov 18 18:21:07 2015 marc brout
-** Last update Thu Nov 19 22:30:51 2015 marc brout
+** Last update Fri Nov 20 01:58:53 2015 marc brout
 */
 
 #include <stdio.h>
@@ -62,5 +62,10 @@ int			main(int ac, char **av)
   if ((ftab.tabo = map_tab_loado(&ftab)) == NULL)
     return (1);
   my_fdf_aff(&ftab);
+  if (ftab.tab != NULL && ftab.tabo != NULL)
+    {
+      bunny_free(ftab.tab);
+      bunny_free(ftab.tabo);
+    }
   return (0);
 }

@@ -5,7 +5,7 @@
 ** Login   <brout_m@epitech.net>
 ** 
 ** Started on  Thu Nov 19 18:30:52 2015 marc brout
-** Last update Thu Nov 19 22:27:12 2015 marc brout
+** Last update Fri Nov 20 04:18:24 2015 marc brout
 */
 
 #include "../include/fdf.h"
@@ -21,9 +21,9 @@ void			link_plan(t_fdftab *fdf,
   while (i < fdf->h *fdf->w)
     {
       pos[0].x = fdf->tab[i].x;
-      pos[0].y = fdf->tab[i].y;
+      pos[0].y = fdf->tab[i].y - 1;
       pos[1].x = fdf->tabo[i].x;
-      pos[1].y = fdf->tabo[i].y;
+      pos[1].y = fdf->tabo[i].y - 1;
       tekline(pix, &pos[0], color);
       i++;
     }

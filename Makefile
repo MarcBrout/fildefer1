@@ -5,7 +5,7 @@
 ## Login   <bougon_p@epitech.net>
 ## 
 ## Started on  Thu Oct 29 14:45:48 2015 Pierre Bougon
-## Last update Thu Nov 19 18:53:09 2015 marc brout
+## Last update Fri Nov 20 05:11:09 2015 marc brout
 ##
 
 SRCP	= ./src/
@@ -15,7 +15,8 @@ SRC     = $(SRCP)fdf.c \
 	$(SRCP)tekllproject.c \
 	$(SRCP)tekpixel.c \
 	$(SRCP)aff_fdf.c \
-	$(SRCP)set_fdf.c
+	$(SRCP)set_fdf.c \
+	$(SRCP)fdf_loop.c
 
 OBJS    = $(SRC:.c=.o)
 
