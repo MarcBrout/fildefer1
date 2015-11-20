@@ -5,7 +5,7 @@
 ** Login   <brout_m@epitech.net>
 ** 
 ** Started on  Wed Nov 18 19:01:04 2015 marc brout
-** Last update Fri Nov 20 05:47:04 2015 marc brout
+** Last update Fri Nov 20 15:03:54 2015 marc brout
 */
 
 #ifndef FDF_H_
@@ -68,6 +68,6 @@ t_bunny_loop mainloop(t_bunny_window *,
 		      t_fdftab *,
 		      t_bunny_pixelarray *);
 t_bunny_response my_key(t_bunny_event_state,
-		   t_bunny_keysym,
-		   t_fdftab *);
+			t_bunny_keysym,
+			void *);
 #endif

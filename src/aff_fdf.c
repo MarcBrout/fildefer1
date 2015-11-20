@@ -5,7 +5,7 @@
 ** Login   <brout_m@epitech.net>
 ** 
 ** Started on  Thu Nov 19 09:49:45 2015 marc brout
-** Last update Fri Nov 20 05:46:18 2015 marc brout
+** Last update Fri Nov 20 15:30:08 2015 marc brout
 */
 
 #include "../include/fdf.h"
@@ -113,11 +113,19 @@ void			my_fdf_aff(t_fdftab *fdf)
 {
   t_bunny_window	*win;
   t_bunny_pixelarray	*pix;
+  t_bunny_key		keyesc;
+  t_color		color[2];
 
+  color[0].full = BLACK;
+  keyesc = &my_key;
   pix = bunny_new_pixelarray(WIDTH, HEIGHT);
   win = bunny_start(WIDTH, HEIGHT, 0, "fil de fer 1");
+  my_fdf_back(pix, &color[0]);
+  start_const(fdf, pix, &color[0]);
+  bunny_set_key_response(keyesc);
+  bunny_blit(&win->buffer, &pix->clipable, NULL);
+  bunny_display(win);
   bunny_loop(win, 25, fdf);
-  bunny_set_loop_main_function(&my_key);
   bunny_delete_clipable(&pix->clipable);
   bunny_stop(win);
 }

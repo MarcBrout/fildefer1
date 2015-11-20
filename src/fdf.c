@@ -5,7 +5,7 @@
 ** Login   <brout_m@epitech.net>
 ** 
 ** Started on  Wed Nov 18 18:21:07 2015 marc brout
-** Last update Fri Nov 20 01:58:53 2015 marc brout
+** Last update Fri Nov 20 15:28:30 2015 marc brout
 */
 
 #include <stdio.h>
@@ -17,7 +17,7 @@ t_bunny_position	*bunnny_load(char *str, t_fdftab *ft)
 {
   t_bunny_position	*pos;
   t_bunny_ini		*ini;
-  
+
   ini = bunny_load_ini(str);
   ft->w = my_getnbr((char*)bunny_ini_get_field(ini, "forme1", "width", 0));
   ft->h = my_getnbr((char*)bunny_ini_get_field(ini, "forme1", "height", 0));
@@ -33,7 +33,7 @@ t_bunny_position	*map_tab_load(t_fdftab *ft, t_bunny_ini *ini)
   int			w;
   int			h;
   t_bunny_position	*pos;
-  
+
   i = 0;
   w = 0;
   h = 0;
@@ -49,7 +49,7 @@ t_bunny_position	*map_tab_load(t_fdftab *ft, t_bunny_ini *ini)
       i++;
     }
   return (pos);
-} 
+}
 
 int			main(int ac, char **av)
 {

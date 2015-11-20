@@ -5,7 +5,7 @@
 ** Login   <brout_m@epitech.net>
 ** 
 ** Started on  Thu Nov 19 18:30:52 2015 marc brout
-** Last update Fri Nov 20 04:18:24 2015 marc brout
+** Last update Fri Nov 20 15:26:06 2015 marc brout
 */
 
 #include "../include/fdf.h"
@@ -35,7 +35,7 @@ t_bunny_position	*map_tab_loado(t_fdftab *ft)
   int			w;
   int			h;
   t_bunny_position	*pos;
-  
+
   i = 0;
   w = 0;
   h = 0;
@@ -59,7 +59,7 @@ void		fdf_plan(t_fdftab *fdf,
 {
   map_calc(fdf, tab);
   map_tray(fdf, tab, pix, color);
-  map_trax(fdf, tab, pix, color);  
+  map_trax(fdf, tab, pix, color);
 }
 
 void		start_const(t_fdftab *fdf,
