@@ -5,7 +5,7 @@
 ** Login   <brout_m@epitech.net>
 ** 
 ** Started on  Thu Nov 19 18:30:52 2015 marc brout
-** Last update Fri Nov 20 15:26:06 2015 marc brout
+** Last update Sat Nov 21 13:54:40 2015 marc brout
 */
 
 #include "../include/fdf.h"
@@ -18,7 +18,7 @@ void			link_plan(t_fdftab *fdf,
   int			i;
 
   i = 0;
-  while (i < fdf->h *fdf->w)
+  while (i < fdf->h * fdf->w)
     {
       pos[0].x = fdf->tab[i].x;
       pos[0].y = fdf->tab[i].y - 1;
@@ -57,9 +57,8 @@ void		fdf_plan(t_fdftab *fdf,
 			 t_bunny_pixelarray *pix,
 			 t_color *color)
 {
-  map_calc(fdf, tab);
-  map_tray(fdf, tab, pix, color);
   map_trax(fdf, tab, pix, color);
+  map_tray(fdf, tab, pix, color);
 }
 
 void		start_const(t_fdftab *fdf,
@@ -68,8 +67,8 @@ void		start_const(t_fdftab *fdf,
 {
   color[0].full = COLOR_TWO;
   fdf_plan(fdf, fdf->tabo, pix, color);
+  color[0].argb[ALPHA_CMP] = 50;
+  link_plan(fdf, pix, color);
   color[0].full = COLOR_ONE;
   fdf_plan(fdf, fdf->tab, pix, color);
-  color[0].argb[ALPHA_CMP] = 125;
-  link_plan(fdf, pix, color);
 }

@@ -5,7 +5,7 @@
 ** Login   <brout_m@epitech.net>
 ** 
 ** Started on  Tue Nov 17 16:29:29 2015 marc brout
-** Last update Fri Nov 20 03:30:51 2015 marc brout
+** Last update Sat Nov 21 10:19:57 2015 marc brout
 */
 
 #include "../include/fdf.h"
@@ -19,6 +19,7 @@ void	posey(t_bunny_pixelarray *pix,
       tekpixel(pix, &pos[0], &color[0]);
       pos->y += ((pos->y == dst) ? 0 : ((pos->y > dst) ? -1 : 1));
     }
+  tekpixel(pix, &pos[0], &color[0]);
 }
 
 void	tekline(t_bunny_pixelarray *pix,

@@ -5,7 +5,7 @@
 ** Login   <brout_m@epitech.net>
 ** 
 ** Started on  Wed Nov 18 18:21:07 2015 marc brout
-** Last update Fri Nov 20 15:28:30 2015 marc brout
+** Last update Sat Nov 21 13:52:15 2015 marc brout
 */
 
 #include <stdio.h>
@@ -23,6 +23,7 @@ t_bunny_position	*bunnny_load(char *str, t_fdftab *ft)
   ft->h = my_getnbr((char*)bunny_ini_get_field(ini, "forme1", "height", 0));
   if ((pos = map_tab_load(ft, ini)) == NULL)
     return (NULL);
+  bunny_delete_ini(ini);
   return (pos);
 }
 
@@ -62,10 +63,7 @@ int			main(int ac, char **av)
   if ((ftab.tabo = map_tab_loado(&ftab)) == NULL)
     return (1);
   my_fdf_aff(&ftab);
-  if (ftab.tab != NULL && ftab.tabo != NULL)
-    {
-      bunny_free(ftab.tab);
-      bunny_free(ftab.tabo);
-    }
+  bunny_free(ftab.tab);
+  bunny_free(ftab.tabo);
   return (0);
 }

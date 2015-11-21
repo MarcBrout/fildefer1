@@ -5,7 +5,7 @@
 ** Login   <brout_m@epitech.net>
 ** 
 ** Started on  Wed Nov 18 19:01:04 2015 marc brout
-** Last update Fri Nov 20 15:03:54 2015 marc brout
+** Last update Sat Nov 21 13:01:33 2015 marc brout
 */
 
 #ifndef FDF_H_
@@ -25,6 +25,10 @@ typedef struct		s_fdftab
 {
   t_bunny_position	*tab;
   t_bunny_position	*tabo;
+  t_bunny_window	*win;
+  t_color		back[2];
+  t_color		col[2];
+  t_bunny_pixelarray	*pix;
   int			h;
   int			w;
 }			t_fdftab;
@@ -64,9 +68,7 @@ void posey(t_bunny_pixelarray *,
 void tekpixel(t_bunny_pixelarray *,
 	      t_bunny_position *,
 	      t_color *);
-t_bunny_loop mainloop(t_bunny_window *,
-		      t_fdftab *,
-		      t_bunny_pixelarray *);
+t_bunny_response main_loop(void *);
 t_bunny_response my_key(t_bunny_event_state,
 			t_bunny_keysym,
 			void *);

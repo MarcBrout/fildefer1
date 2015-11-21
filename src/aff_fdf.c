@@ -5,7 +5,7 @@
 ** Login   <brout_m@epitech.net>
 ** 
 ** Started on  Thu Nov 19 09:49:45 2015 marc brout
-** Last update Fri Nov 20 15:30:08 2015 marc brout
+** Last update Sat Nov 21 13:09:26 2015 marc brout
 */
 
 #include "../include/fdf.h"
@@ -111,21 +111,18 @@ void			my_fdf_back(t_bunny_pixelarray *pix,
 
 void			my_fdf_aff(t_fdftab *fdf)
 {
-  t_bunny_window	*win;
-  t_bunny_pixelarray	*pix;
   t_bunny_key		keyesc;
-  t_color		color[2];
 
-  color[0].full = BLACK;
+  fdf->back[0].full = COLOR_BACK;
+  fdf->back[1].full = COLOR_BACK;
   keyesc = &my_key;
-  pix = bunny_new_pixelarray(WIDTH, HEIGHT);
-  win = bunny_start(WIDTH, HEIGHT, 0, "fil de fer 1");
-  my_fdf_back(pix, &color[0]);
-  start_const(fdf, pix, &color[0]);
+  fdf->pix = bunny_new_pixelarray(WIDTH, HEIGHT);
+  fdf->win = bunny_start(WIDTH, HEIGHT, 0, "fil de fer 1");
+  map_calc(fdf, fdf->tab);
+  map_calc(fdf, fdf->tabo);
   bunny_set_key_response(keyesc);
-  bunny_blit(&win->buffer, &pix->clipable, NULL);
-  bunny_display(win);
-  bunny_loop(win, 25, fdf);
-  bunny_delete_clipable(&pix->clipable);
-  bunny_stop(win);
+  bunny_set_loop_main_function(main_loop);
+  bunny_loop(fdf->win, 24, fdf);
+  bunny_delete_clipable(&fdf->pix->clipable);
+  bunny_stop(fdf->win);
 }
