@@ -5,7 +5,7 @@
 ** Login   <brout_m@epitech.net>
 ** 
 ** Started on  Thu Nov 19 09:49:45 2015 marc brout
-** Last update Sat Nov 21 13:09:26 2015 marc brout
+** Last update Sat Nov 21 21:12:33 2015 marc brout
 */
 
 #include "../include/fdf.h"
@@ -55,8 +55,8 @@ void			map_tray(t_fdftab *fdf,
       j = 0;
       while (j++ <= (fdf->w) && k < (fdf->h * fdf->w - fdf->w))
 	{
-	  pos[0].x = tab[k].x + 1;
-	  pos[1].x = tab[k + fdf->w].x + 1;
+	  pos[0].x = tab[k].x;
+	  pos[1].x = tab[k + fdf->w].x;
 	  pos[0].y = tab[k].y;
 	  pos[1].y = tab[k + fdf->w].y;
 	  tekline(pix, &pos[0], color);
@@ -70,24 +70,24 @@ void		map_calc(t_fdftab *fdf, t_bunny_position *tab)
   int		i;
   int		j;
   int		k;
-  int		basey;
   int		basex;
+  int		basey;
 
   i = 0;
   k = 0;
-  basey = 200;
-  basex = 500;
+  basex = fdf->conf->offsetx;
+  basey = fdf->conf->offsety;
   while (i++ < fdf->h)
     {
       j = 0;
       while (j < fdf->w)
 	{
-	  tab[k].x += PAS * j++ + basex;
-	  tab[k].y = (tab[k].y * PAS / 3) + basey;
+	  tab[k].x += fdf->conf->pasx * j++ + basex;
+	  tab[k].y = (tab[k].y * fdf->conf->pasy) + basey;
 	  k++;
 	}
-      basex -= PAS;
-      basey += PAS;
+      basex -= fdf->conf->pasx;
+      basey += fdf->conf->pasx;
     }
 }
 
@@ -120,6 +120,7 @@ void			my_fdf_aff(t_fdftab *fdf)
   fdf->win = bunny_start(WIDTH, HEIGHT, 0, "fil de fer 1");
   map_calc(fdf, fdf->tab);
   map_calc(fdf, fdf->tabo);
+  map_calc(fdf, fdf->tabw);
   bunny_set_key_response(keyesc);
   bunny_set_loop_main_function(main_loop);
   bunny_loop(fdf->win, 24, fdf);

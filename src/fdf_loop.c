@@ -5,14 +5,14 @@
 ** Login   <brout_m@epitech.net>
 ** 
 ** Started on  Fri Nov 20 04:17:45 2015 marc brout
-** Last update Sat Nov 21 14:01:48 2015 marc brout
+** Last update Sat Nov 21 14:19:39 2015 marc brout
 */
 
 #include "../include/fdf.h"
 
 t_bunny_response	my_key(t_bunny_event_state state,
-			      t_bunny_keysym keysym,
-			      void *data)
+			       t_bunny_keysym keysym,
+			       void *data)
 {
   if (keysym == BKS_ESCAPE)
     if (state == GO_DOWN)
