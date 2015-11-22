@@ -5,7 +5,7 @@
 ** Login   <brout_m@epitech.net>
 ** 
 ** Started on  Wed Nov 18 19:01:04 2015 marc brout
-** Last update Sat Nov 21 19:56:11 2015 marc brout
+** Last update Sun Nov 22 01:00:00 2015 marc brout
 */
 
 #ifndef FDF_H_
@@ -28,7 +28,7 @@ typedef struct		s_conf
   int			pasx;
   int			pasy;
   int			offsetx;
-  int			offsety;  
+  int			offsety;
 }			t_conf;
 
 typedef struct		s_fdftab

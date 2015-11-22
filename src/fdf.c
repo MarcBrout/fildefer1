@@ -5,7 +5,7 @@
 ** Login   <brout_m@epitech.net>
 ** 
 ** Started on  Wed Nov 18 18:21:07 2015 marc brout
-** Last update Sat Nov 21 21:21:28 2015 marc brout
+** Last update Sun Nov 22 00:57:19 2015 marc brout
 */
 
 #include <stdlib.h>
@@ -13,7 +13,10 @@
 
 void	conf_pas(t_fdftab *fdf)
 {
-  fdf->conf->pasx = (HEIGHT / (fdf->w + 3)) - (HEIGHT / (fdf->w + 3) / 6);
+  int	small;
+
+  small = (HEIGHT < WIDTH) ? HEIGHT : WIDTH;
+  fdf->conf->pasx = ((small / fdf->w) * 3) / 5;
   fdf->conf->pasy = fdf->conf->pasx / 3;
   fdf->conf->offsetx = WIDTH - (fdf->w  * (fdf->conf->pasx + 1));
   fdf->conf->offsety = fdf->conf->pasy * (fdf->h + 1);
@@ -44,13 +47,9 @@ t_bunny_position	*map_tab_load(t_fdftab *ft, t_bunny_ini *ini)
 {
   int			i;
   int			z;
-  int			w;
-  int			h;
   t_bunny_position	*pos;
 
   i = 0;
-  w = 0;
-  h = 0;
   if ((pos = bunny_malloc(sizeof(t_bunny_position) *
 			  (ft->h * ft->w))) == NULL)
     return (NULL);
@@ -59,9 +58,7 @@ t_bunny_position	*map_tab_load(t_fdftab *ft, t_bunny_ini *ini)
       z = my_getnbr((char*)bunny_ini_get_field(ini, "forme1", "data", i));
       if ((z * ft->conf->pasy) > ft->conf->max)
 	ft->conf->max = z;
-      tekllproject(&pos[i], w, h, z);
-      w += ((w == (ft->w)) ? (ft->w - 1) * -1 : 1);
-      h += ((w == (ft->w)) ? 1 : 0);
+      tekllproject(&pos[i], i % ft->w, i / ft->w, z);
       i++;
     }
   return (pos);
