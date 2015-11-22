@@ -5,7 +5,7 @@
 ** Login   <brout_m@epitech.net>
 ** 
 ** Started on  Sun Nov 22 05:52:22 2015 marc brout
-** Last update Sun Nov 22 06:44:10 2015 marc brout
+** Last update Sun Nov 22 18:34:19 2015 marc brout
 */
 
 #include <unistd.h>
@@ -32,8 +32,11 @@ int	aff_err(int i)
     my_putstr_err("Missing Height or Value is 0. Terminating Execution.\n");
   if (i == 3)
     my_putstr_err("Missing Data value. Terminating Execution.\n");
-  if (i == 4)
-    my_putstr_err("No fdf1 form found. Terminating Execution.\n");
+  if (i == 4 || i == 6)
+    {
+      my_putstr_err("No [Forme1] \"fdf1\" form found. ");
+      my_putstr_err("Terminating Execution.\n");
+    }
   if (i == 5)
     my_putstr_err("Wrong file input. Terminating Execution.\n");
   return (i);

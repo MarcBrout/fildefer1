@@ -5,7 +5,7 @@
 ## Login   <bougon_p@epitech.net>
 ## 
 ## Started on  Thu Oct 29 14:45:48 2015 Pierre Bougon
-## Last update Sun Nov 22 06:46:15 2015 marc brout
+## Last update Sun Nov 22 18:18:20 2015 marc brout
 ##
 
 SRCP	= ./src/
@@ -27,7 +27,7 @@ NAME    = fdf1
 
 CC      = gcc
 
-CFLAGS  = -W -Wall -Werror -ansi -pedantic
+#CFLAGS  = -W -Wall -Werror -ansi -pedantic
 
 LDFLAGS = -L/usr/local/lib \
 	-llapin \

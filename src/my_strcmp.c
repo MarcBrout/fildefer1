@@ -5,7 +5,7 @@
 ** Login   <brout_m@epitech.net>
 ** 
 ** Started on  Mon Oct  5 14:42:02 2015 marc brout
-** Last update Sun Nov 22 02:10:01 2015 marc brout
+** Last update Sun Nov 22 18:23:54 2015 marc brout
 */
 
 int	my_strcmp(const char *need, char *tar)
@@ -17,4 +17,3 @@ int	my_strcmp(const char *need, char *tar)
     i = i + 1;
   return (need[i] - tar[i]);
 }
-
