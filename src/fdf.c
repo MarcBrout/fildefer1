@@ -5,7 +5,7 @@
 ** Login   <brout_m@epitech.net>
 ** 
 ** Started on  Wed Nov 18 18:21:07 2015 marc brout
-** Last update Sun Nov 22 06:43:07 2015 marc brout
+** Last update Sun Nov 22 07:03:25 2015 marc brout
 */
 
 #include <stdlib.h>
@@ -16,7 +16,7 @@ void	conf_pas(t_fdftab *fdf)
   int	small;
 
   small = (HEIGHT < WIDTH) ? HEIGHT : WIDTH;
-  fdf->conf->pasx = ((small / fdf->w) * 3) / 5;
+  fdf->conf->pasx = small / (fdf->w + 2);
   fdf->conf->pasy = fdf->conf->pasx / 3;
   fdf->conf->offsetx = WIDTH - (fdf->w  * (fdf->conf->pasx + 1));
   fdf->conf->offsety = fdf->conf->pasy * (fdf->h + 1);

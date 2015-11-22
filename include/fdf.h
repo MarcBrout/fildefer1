@@ -5,7 +5,7 @@
 ** Login   <brout_m@epitech.net>
 ** 
 ** Started on  Wed Nov 18 19:01:04 2015 marc brout
-** Last update Sun Nov 22 06:26:39 2015 marc brout
+** Last update Sun Nov 22 06:58:56 2015 marc brout
 */
 
 #ifndef FDF_H_
@@ -14,7 +14,7 @@
 # include "lapin.h"
 
 # define COLOR_BACK BLACK
-# define COLOR_WATER BLUE
+# define COLOR_WATER PINK
 # define COLOR_RELIEF BLUE
 # define COLOR_BASE WHITE
 # define COLOR_PILAR GREEN
