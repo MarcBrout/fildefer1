@@ -5,7 +5,7 @@
 ** Login   <brout_m@epitech.net>
 ** 
 ** Started on  Wed Nov 18 19:01:04 2015 marc brout
-** Last update Sun Nov 22 06:58:56 2015 marc brout
+** Last update Sun Nov 22 18:47:22 2015 marc brout
 */
 
 #ifndef FDF_H_
@@ -46,7 +46,6 @@ typedef struct		s_fdftab
   int			w;
 }			t_fdftab;
 
-
 int my_strcmp(const char *, char *);
 int my_getnbr(const char *);
 t_bunny_response main_loop(void *);
@@ -59,7 +58,7 @@ int aff_err(int);
 void my_putchar_err(char);
 void my_putstr_err(char *);
 void free_tab(t_fdftab *);
-void my_alpha_to(t_color *, t_color *, int); 
+void my_alpha_to(t_color *, t_color *, int);
 void start_const(t_fdftab *, t_bunny_pixelarray *, t_color *);
 void conf_pas(t_fdftab *);
 void fdf_plan(t_fdftab *, t_bunny_position *, t_bunny_pixelarray *,

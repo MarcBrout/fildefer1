@@ -5,7 +5,7 @@
 ** Login   <brout_m@epitech.net>
 ** 
 ** Started on  Fri Nov 20 04:17:45 2015 marc brout
-** Last update Sun Nov 22 18:31:50 2015 marc brout
+** Last update Sun Nov 22 18:45:52 2015 marc brout
 */
 
 #include "../include/fdf.h"
@@ -38,7 +38,7 @@ t_bunny_response	main_loop(void *data)
 int	check_ini(t_bunny_ini *ini)
 {
   if (bunny_ini_get_field(ini, "forme1", "type", 0) == NULL)
-    return (6);  
+    return (6);
   if (my_strcmp(bunny_ini_get_field(ini, "forme1", "type", 0),"fdf1"))
     return (4);
   if (bunny_ini_get_field(ini, "forme1", "width", 0) == NULL ||
