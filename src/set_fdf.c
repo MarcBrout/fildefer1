@@ -5,7 +5,7 @@
 ** Login   <brout_m@epitech.net>
 ** 
 ** Started on  Thu Nov 19 18:30:52 2015 marc brout
-** Last update Sat Nov 21 23:39:03 2015 marc brout
+** Last update Sun Nov 22 05:34:25 2015 marc brout
 */
 
 #include "../include/fdf.h"
@@ -86,9 +86,14 @@ void		start_const(t_fdftab *fdf,
   fdf_plan(fdf, fdf->tabw, pix, color);
   color[0].full = COLOR_WATER;
   fdf_plan(fdf, fdf->tabw, pix, color);
-  color[0].full = COLOR_TWO;
+  color[0].full = COLOR_BASE;
+  color[1].full = COLOR_BACK;
+  my_alpha_to(&color[0], &color[1], 200);
   fdf_plan(fdf, fdf->tabo, pix, color);
+  color[0].full = COLOR_PILAR;
+  color[1].full = COLOR_BACK;
+  my_alpha_to(&color[0], &color[1], 150);
   link_plan(fdf, fdf->tab, fdf->tabo, color);
-  color[0].full = COLOR_ONE;
+  color[0].full = COLOR_RELIEF;
   fdf_plan(fdf, fdf->tab, pix, color);
 }

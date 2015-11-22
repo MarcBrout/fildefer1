@@ -5,10 +5,10 @@
 ** Login   <brout_m@epitech.net>
 ** 
 ** Started on  Mon Oct 12 19:01:57 2015 marc brout
-** Last update Sat Oct 17 10:17:03 2015 marc brout
+** Last update Sun Nov 22 02:08:50 2015 marc brout
 */
 
-int		my_getnbr(char *str)
+int		my_getnbr(const char *str)
 {
   unsigned int	total;
   int		isneg;

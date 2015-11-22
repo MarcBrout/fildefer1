@@ -5,7 +5,7 @@
 ** Login   <brout_m@epitech.net>
 ** 
 ** Started on  Thu Nov 19 09:49:45 2015 marc brout
-** Last update Sat Nov 21 22:47:39 2015 marc brout
+** Last update Sun Nov 22 04:44:27 2015 marc brout
 */
 
 #include "../include/fdf.h"
@@ -82,12 +82,12 @@ void		map_calc(t_fdftab *fdf, t_bunny_position *tab)
       j = 0;
       while (j < fdf->w)
 	{
-	  tab[k].x += fdf->conf->pasx * j++ + basex;
+	  tab[k].x += fdf->conf->pasx * j++ + basex + k * 7;
 	  tab[k].y = (tab[k].y * fdf->conf->pasy) + basey;
 	  k++;
 	}
       basex -= fdf->conf->pasx;
-      basey += fdf->conf->pasx;
+      basey += (fdf->conf->pasx * 2) / 5;
     }
 }
 

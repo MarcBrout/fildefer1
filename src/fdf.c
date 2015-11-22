@@ -5,7 +5,7 @@
 ** Login   <brout_m@epitech.net>
 ** 
 ** Started on  Wed Nov 18 18:21:07 2015 marc brout
-** Last update Sun Nov 22 00:57:19 2015 marc brout
+** Last update Sun Nov 22 06:43:07 2015 marc brout
 */
 
 #include <stdlib.h>
@@ -22,31 +22,32 @@ void	conf_pas(t_fdftab *fdf)
   fdf->conf->offsety = fdf->conf->pasy * (fdf->h + 1);
 }
 
-t_bunny_position	*bunnny_load(char *str, t_fdftab *ft)
+int			bunnny_load(char *str, t_fdftab *ft)
 {
-  t_bunny_position	*pos;
-  t_bunny_ini		*ini;
+  int			i;
 
-  if ((ini = bunny_load_ini(str)) == NULL)
-    return (NULL);
-  ft->w = my_getnbr((char*)bunny_ini_get_field(ini, "forme1", "width", 0));
-  ft->h = my_getnbr((char*)bunny_ini_get_field(ini, "forme1", "height", 0));
+  if ((ft->ini = bunny_load_ini(str)) == NULL)
+    return (5);
+  if ((i = check_ini(ft->ini)) > 0)
+    return (i);
+  ft->w = my_getnbr((char*)bunny_ini_get_field(ft->ini,
+					       "forme1", "width", 0));
+  ft->h = my_getnbr((char*)bunny_ini_get_field(ft->ini,
+					       "forme1", "height", 0));
   ft->conf->max = 0;
   conf_pas(ft);
-  if ((pos = map_tab_load(ft, ini)) == NULL)
-    return (NULL);
-  if ((ft->tabo = map_tab_loado(ft, ini)) == NULL)
-    return (NULL);
-  if ((ft->tabw = map_tab_loadw(ft)) == NULL)
-    return (NULL);
-  bunny_delete_ini(ini);
-  return (pos);
+  if (((ft->tab = map_tab_load(ft, ft->ini)) == NULL) ||
+      ((ft->tabo = map_tab_loado(ft, ft->ini)) == NULL) ||
+      ((ft->tabw = map_tab_loadw(ft)) == NULL))
+    return (3);
+  return (0);
 }
 
 t_bunny_position	*map_tab_load(t_fdftab *ft, t_bunny_ini *ini)
 {
   int			i;
   int			z;
+  char			*test;
   t_bunny_position	*pos;
 
   i = 0;
@@ -55,7 +56,10 @@ t_bunny_position	*map_tab_load(t_fdftab *ft, t_bunny_ini *ini)
     return (NULL);
   while (i < (ft->h * ft->w))
     {
-      z = my_getnbr((char*)bunny_ini_get_field(ini, "forme1", "data", i));
+      if ((test = (char *)bunny_ini_get_field(ini, "forme1", "data", i))
+	  == NULL)
+	return (NULL);
+      z = my_getnbr(test);
       if ((z * ft->conf->pasy) > ft->conf->max)
 	ft->conf->max = z;
       tekllproject(&pos[i], i % ft->w, i / ft->w, z);
@@ -68,14 +72,14 @@ int			main(int ac, char **av)
 {
   t_fdftab		ftab;
   t_conf		conf;
+  int			i;
 
   ftab.conf = &conf;
   if (ac < 2)
     return (1);
-  if ((ftab.tab = bunnny_load(av[1], &ftab)) == NULL)
-    return (1);
+  if ((i = bunnny_load(av[1], &ftab)) > 0)
+    return (aff_err(i));
   my_fdf_aff(&ftab);
-  bunny_free(ftab.tab);
-  bunny_free(ftab.tabo);
+  free_tab(&ftab);
   return (0);
 }
