@@ -5,7 +5,7 @@
 ## Login   <bougon_p@epitech.net>
 ## 
 ## Started on  Thu Oct 29 14:45:48 2015 Pierre Bougon
-## Last update Sun Nov 22 18:54:14 2015 marc brout
+## Last update Tue Feb 23 18:10:13 2016 
 ##
 
 SRCP	= ./src/
@@ -29,7 +29,10 @@ CC      = gcc
 
 CFLAGS  = -W -Wall -Werror -ansi -pedantic
 
+CFLAGS	+= -I/home/${USER}/.froot/include
+
 LDFLAGS = -L/usr/local/lib \
+	-L/home/${USER}/.froot/lib \
 	-llapin \
 	-lsfml-audio \
 	-lsfml-graphics \
